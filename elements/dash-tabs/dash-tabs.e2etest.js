@@ -102,6 +102,7 @@ describe('dash-tabs', function() {
     async function() {
       const lastTab =
         await this.driver.findElement(By.css('[role=tab]:last-of-type'));
+      // FIXME: This line is missing an await
       expect(lastTab.getAttribute('aria-selected')).to.not.equal('true');
       await lastTab.click();
       expect(await lastTab.getAttribute('aria-selected')).to.equal('true');
